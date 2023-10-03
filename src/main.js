@@ -1,12 +1,18 @@
-// Import our custom CSS
-import './scss/styles.scss'
+import('bootstrap/scss/bootstrap.scss')
+import('bootstrap-icons/font/bootstrap-icons.scss')
 
-// Import all of Bootstrap's JS
-// import * as bootstrap from 'bootstrap'
+import { Home } from './js/Home'
+import { About } from './js/About'
 
-var a = m(".container.py-4.px-3.mx-auto", [
-    m("h1", "Hello: Mithril, Bootstrap and Webpack!"),
-    m("button.btn.btn-primary", "Primary button")
-])
+import { Layout } from './js/Layout'
 
-m.render(document.body, a);
+document.documentElement.setAttribute('data-bs-theme', 'dark')
+
+m.route(document.body, "/", {
+    "/": {
+        render: function() { return m(Layout, m(Home)) },
+    },
+    "/about": {
+        render: function() { return m(Layout, m(About)) },
+    }
+})

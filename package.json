@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
+    "dev": "webpack serve",
+    "start": "webpack build --mode=production & npx serve dist",
     "build": "webpack build --mode=production"
   },
   "keywords": [
@@ -17,6 +18,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.1",
     "mithril": "^2.2.2"
   },
   "devDependencies": {
